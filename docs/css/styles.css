@@ -106,7 +106,7 @@ ul li {
 }
 
 /* Detail page article */
-.details__container a {
+.details__container article {
   width: 100%;
   height: 100vh;
   padding-left: 2em;
@@ -345,7 +345,7 @@ footer {
       width: 85%;
   }
 
-  .details__container a {
+  .details__container article {
       flex-direction: column;
       padding-left: 0em;
   }
