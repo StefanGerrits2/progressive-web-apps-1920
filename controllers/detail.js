@@ -66,15 +66,15 @@ function dataHelper(data) {
 };
 
 // Render home page
-async function home (req, res) {
+async function detail (req, res) {
     const baseApiUrl = 'https://api.punkapi.com/v2/beers';
-    const url = `${baseApiUrl}?page=1&per_page=9`;
+    const url = `${baseApiUrl}?page=1&ids=${req.params.id}&per_page=9`;
 
     // Fetch data
     const beers = await Fetcher.get(url)
         .then(data => dataHelper(data)) ;
     
-    res.render('home.hbs', {beers: beers});
+    res.render('detail.hbs', {beers: beers});
 }
 
-module.exports = home;
+module.exports = detail;

@@ -7,6 +7,7 @@ const publicPath = path.join(__dirname, './docs/');
 
 // Controllers
 const home = require('./controllers/home.js');
+const detail = require('./controllers/detail.js');
 
 app
     .set('view engine', 'hbs')
@@ -17,6 +18,7 @@ app
     }))
     .use('/', express.static(publicPath))
     .get('/', home)
+    .get('/:id', detail)
 
     .listen(port, () => console.log(`Example app listening on port ${port}!`))
 
