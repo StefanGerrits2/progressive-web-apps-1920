@@ -1,50 +1,47 @@
 <div class="details__container">
     {{#each beers}}
-    <article class="article-detail__container" id="{{id}}">
-        <div class="left__container">
-            <div class="left__container-content">
-                <h2>{{name}}</h2>
-                <img src="{{image_url}}" alt="">
-                <p class="tagline">{{tagline}}</p>
-            </div>
-        </div>
-        <div class="right__container">
-            <div class="right__container-content">
-                <h3>General information</h3>
-                <p>Volume: {{readableVolume}}</p>
-                <p>Boil volume: {{readableBoilVolume}}</p>
-                <p>Alcohol by volume: {{abv}}%</p>
-                <p>Brewers tips: {{brewers_tips}}</p>
-                <h3>Ingredients</h3>
-                <ul class="ingredients__container">
-                    {{#ingredients}}
-                        <li>{{name}}, 
-                            {{#amount}}
-                                {{amount.value}} {{amount.unit}},
-                            {{/amount}} 
-                            {{type}}
-                        </li>
-                    {{/ingredients}}
-                </ul>
-            </div>
-        </div>
-        <a id="goBack" href="">Back</a>
-    </article>
-    <div class="related-beers__container">
-        <h2>Beers around the same alcohol by volume</h2>
-        <div class="related-beers__container-flex">
-            {{#relatedBeers}}
-                <div class="related-beers__item">
-                    <h3>
-                        <a href="/{{id}}">{{name}}</a>
-                    </h3>
-                    <a href="/{{id}}">
-                        <img src="{{image_url}}"/>
-                    </a>
-                    <p>Alcohol by volume: {{abv}}%</p>
+        <article class="article-detail__container" id="{{id}}">
+            <div class="left__container">
+                <div class="left__container-content">
+                    <h2>{{name}}</h2>
+                    <img src="{{image_url}}" alt="">
+                    <p class="tagline">{{tagline}}</p>
                 </div>
-            {{/relatedBeers}}
+            </div>
+            <div class="right__container">
+                <div class="right__container-content">
+                    <h3>General information</h3>
+                    <p>Volume: {{readableVolume}}</p>
+                    <p>Boil volume: {{readableBoilVolume}}</p>
+                    <p>Alcohol by volume: {{abv}}%</p>
+                    <p>Brewers tips: {{brewers_tips}}</p>
+                    <h3>Ingredients</h3>
+                    <ul class="ingredients__container">
+                        {{#ingredients}}
+                            <li>
+                                {{name}}
+                                {{#amount}}
+                                    {{amount.value}} {{amount.unit}},
+                                {{/amount}} 
+                                {{type}}
+                            </li>
+                        {{/ingredients}}
+                    </ul>
+                </div>
+            </div>
+            <a id="goBack" href="">Back</a>
+        </article>
+        <div class="related-beers__container">
+            <h2>Beers around the same alcohol by volume</h2>
+            <div class="related-beers__container-flex">
+                {{#if relatedBeers}}
+                    {{#relatedBeers}}
+                        {{> relatedBeerCard}}
+                    {{/relatedBeers}}
+                {{else}}
+                    <p>No related beers have been found</p>
+                {{/if}}
+            </div>
         </div>
-    </div>
     {{/each}}
 </div>

@@ -2,15 +2,7 @@
 
 <div class="overview__container">
     {{#each beers}}
-        <article>
-            <h2>
-                <a href="/{{id}}">{{name}}</a>
-            </h2>
-            <a href="/{{id}}">
-                <img src="{{image_url}}"/>
-            </a>
-            <p class="tagline">{{tagline}}</p>
-        </article>
+        {{> overviewCard}}
     {{/each}}
 </div>
 
