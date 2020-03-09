@@ -131,7 +131,6 @@ ul li {
 }
 
 .details__container {
-  display: none;
   flex-direction: column;
 }
 
