@@ -1,4 +1,4 @@
-function dataHelper(data) {
+function dataHelper(data, clickedBeer) {
     return data.map(item => {
         return { 
             ...item,
@@ -34,7 +34,7 @@ function dataHelper(data) {
                 }
             }, []),
             //
-            relatedBeers: data.filter(beer => {
+            relatedBeers: clickedBeer.filter(beer => {
                 // Check if beer percentage is somewhat the same and if it's not the same beer
                 if(beer.abv < item.abv + .5 && beer.abv > item.abv -.5 && beer.id !== item.id) {
                     return beer;
