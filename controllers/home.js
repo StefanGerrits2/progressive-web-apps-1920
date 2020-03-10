@@ -6,11 +6,11 @@ async function home (req, res) {
     const url = `${baseApiUrl}?page=1&per_page=36`;
 
     // Fetch data
-    const beers = await Fetcher.get(url)
+    const beers = await Fetcher.get(url);
     
-console.log(beers)
-
-    res.render('home.hbs', {beers: beers});
+    res.render('home.hbs', {
+        beers: beers
+    });
 }
 
 module.exports = home;

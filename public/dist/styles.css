@@ -1,81 +1,66 @@
 @font-face {
   font-family: Roboto-medium;
-  src: url(../fonts/Roboto/Roboto-Medium.ttf);
-}
+  src: url(../fonts/Roboto/Roboto-Medium.ttf); }
 
 @font-face {
   font-family: Roboto-regular;
-  src: url(../fonts/Roboto/Roboto-Regular.ttf);;
-}
+  src: url(../fonts/Roboto/Roboto-Regular.ttf); }
 
 @font-face {
   font-family: Roboto-light;
-  src: url(../fonts/Roboto/Roboto-Light.ttf);
-}
+  src: url(../fonts/Roboto/Roboto-Light.ttf); }
 
 @font-face {
   font-family: Roboto-light-italic;
-  src: url(../fonts/Roboto/Roboto-LightItalic.ttf);
-}
+  src: url(../fonts/Roboto/Roboto-LightItalic.ttf); }
 
 body {
   margin: 0em;
   overflow-x: hidden;
-  background-color: black;
-}
+  background-color: black; }
 
 header {
   background-color: black;
   padding: .1rem;
-  width: 100%;
-}
+  width: 100%; }
 
 img {
-  height: 10em;
-}
+  height: 10em; }
 
 h1 {
   width: 65%;
   margin: 1em auto;
   font-family: Roboto-medium;
   color: #C8493B;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
 h2, h3 {
   font-family: Roboto-regular;
-  color: white;
-}
+  color: white; }
 
 a {
   text-decoration: none;
   color: white;
   cursor: pointer;
-  display: block;
-}
+  display: block; }
 
 body > p {
   width: 65%;
-  margin: 0em auto;
-}
+  margin: 0em auto; }
 
 .name {
-  min-height: 3em;
-}
+  min-height: 3em; }
 
 p, ul {
   font-family: Roboto-light;
-  color: white
-}
+  color: white; }
 
 ul li {
-  font-size: 14px;
-}
+  font-size: 14px; }
 
 .tagline {
   padding: 1em;
-  font-family: Roboto-light-italic;
-}
+  font-family: Roboto-light-italic; }
 
 /* Overview container*/
 .overview__container {
@@ -85,25 +70,21 @@ ul li {
   width: 65%;
   margin: 0em auto;
   margin-bottom: 3em;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
 
 /* Overview article */
 .overview__container a {
   width: 30%;
   background-color: #689775;
   margin-top: 2em;
-  transition: 300ms;
-}
+  transition: 300ms; }
 
 .overview__container a:hover {
-    transform: scale(1.07);
-    transition: 300ms;
-}
+  transform: scale(1.07);
+  transition: 300ms; }
 
 .overview__container h2 {
-  padding: 0em 1em;
-}
+  padding: 0em 1em; }
 
 /* Detail page article */
 .details__container article {
@@ -111,78 +92,63 @@ ul li {
   height: 100vh;
   padding-left: 2em;
   position: relative;
-  display: flex;
-}
+  display: flex; }
 
 .left__container {
-  width: 30%;
-}
+  width: 30%; }
 
 .left__container-content {
   text-align: center;
-  margin-top: 22%;
-}
+  margin-top: 22%; }
 
 .right__container {
-  width: 70%;
-}
+  width: 70%; }
 
 .right__container-content {
   text-align: left;
   margin-top: 7.5%;
   background-color: black;
   padding: 1em 2em;
-  width: 70%;
-}
+  width: 70%; }
 
 .details__container {
   flex-direction: column;
-  background-color: #689775;
-}
+  background-color: #689775; }
 
 .related-beers__container-flex {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   margin: 0em auto;
-  width: 90%;
-}
+  width: 90%; }
 
 .related-beers__item {
   padding: 1% 2%;
-  width: 20%;
-}
+  width: 20%; }
 
 .related-beers__container > h2 {
   margin-bottom: 2em;
-  margin-left: 10%;
-}
+  margin-left: 10%; }
 
 .details__container img {
   height: 20em;
-  margin-bottom: 2em;
-}
+  margin-bottom: 2em; }
 
 .related-beers__item img {
-  height: 10em;
-}
+  height: 10em; }
 
 text {
-  display: none;
-}
+  display: none; }
 
 .related-beers__container {
   width: 100%;
-  background-color: #689775;
-}
+  background-color: #689775; }
 
 .related-beers__container h2 {
-  margin-top: 2em;
-}
+  margin-top: 2em; }
 
 .related-beers__container div * {
-  text-align: center;
-}
+  text-align: center; }
 
 /* Loading state */
 .loading-state {
@@ -190,44 +156,38 @@ text {
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-}
+  transform: translate(-50%, -50%); }
 
 .loading-state img {
   display: block;
-  height: 30vh;
-}
+  height: 30vh; }
 
 .loading-state p {
   font-size: 2em;
   font-weight: bold;
   text-transform: uppercase;
-  margin-top: 0em;
-}
+  margin-top: 0em; }
 
 .loading-state p:after, .loading-state2 p:after {
   content: ' .';
-  animation: dots 1s steps(5, end) infinite;
-}
+  animation: dots 1s steps(5, end) infinite; }
 
 .loading-state2 {
   margin: 0em auto;
   text-align: center;
-  opacity: 0;
-}
+  opacity: 0; }
 
 .loading-animation {
-  animation: load 1.5s;
-}
+  animation: load 1.5s; }
 
 @keyframes load {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 
 .loading-state2 img {
-  height: 5em;
-}
+  height: 5em; }
 
 /* Back button */
 #goBack {
@@ -238,14 +198,12 @@ text {
   font-family: Roboto-medium;
   cursor: pointer;
   position: absolute;
-  bottom: 2em;
-}
+  bottom: 2em; }
 
 #goBack:hover {
   color: black;
   background-color: #A33326;
-  transition: 0.2s;
-}
+  transition: 0.2s; }
 
 /* Load button */
 .pagination__container {
@@ -254,8 +212,7 @@ text {
   margin-top: 1em;
   margin-bottom: 2em;
   display: flex;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
 
 .pagination__container button {
   background-color: transparent;
@@ -265,161 +222,107 @@ text {
   font-family: Roboto-medium;
   cursor: pointer;
   height: 4em;
-  position: absolute;
-}
+  position: absolute; }
 
 .pagination__container button:hover {
   color: black;
   background-color: #A33326;
-  transition: 0.2s;
-}
+  transition: 0.2s; }
 
-button:focus { 
-  outline: none 
-}
+button:focus {
+  outline: none; }
 
 .ingredients__container {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
-}
+  padding-left: 0; }
 
 .ingredients__container li {
   display: block;
   padding: 1em;
   width: 20%;
-  border: 1px solid white;
-}
+  border: 1px solid white; }
 
 /* Hide elements when in detail page */
 .hide {
-  display: none;
-}
+  display: none; }
 
 .show {
-  display: flex;
-}
+  display: flex; }
 
 /* Footer */
 footer {
-    width: 65%;
-    margin: 0em auto;
-}
+  width: 65%;
+  margin: 0em auto; }
 
 /* Media queries */
 @media screen and (max-width: 1300px) {
   .overview__container a {
-      width: 45%;
-      background-color: #689775;
-      margin-top: 2em;
-  }
-
+    width: 45%;
+    background-color: #689775;
+    margin-top: 2em; }
   .related-beers__item {
-      width: 40%;
-  }
-}
+    width: 40%; } }
 
 @media screen and (max-width: 650px) {
   .related-beers__item {
-      width: 100%;
-  }
-
+    width: 100%; }
   .overview__container a {
-      width: 100%;
-      background-color: #689775;
-      margin-top: 2em;
-  }
-
+    width: 100%;
+    background-color: #689775;
+    margin-top: 2em; }
   .ingredients__container li {
-      border: 4px solid #689775;
-      width: 100%;
-  }
-
+    border: 4px solid #689775;
+    width: 100%; }
   .overview__container,
   #pagination__container,
   h1 {
-      width: 85%;
-  }
-
+    width: 85%; }
   .pagination__container {
-      width: 85%;
-  }
-
+    width: 85%; }
   .details__container article {
-      flex-direction: column;
-      padding-left: 0em;
-  }
-
+    flex-direction: column;
+    padding-left: 0em; }
   .details__container p, #goBack {
-      text-align: left;
-      margin-left: 2em;
-  }
-
+    text-align: left;
+    margin-left: 2em; }
   .details__container .left__container-content p {
-      text-align: center;
-      margin-left: 0em;
-  }
-
+    text-align: center;
+    margin-left: 0em; }
   .show-details {
-      display: block;
-      overflow: auto;
-      background-color: #689775;
-  }
-
+    display: block;
+    overflow: auto;
+    background-color: #689775; }
   #goBack {
-      position: relative;
-      width: 3em;
-      margin-left: 18%;
-      margin-bottom: 3em;
-  }
-
+    position: relative;
+    width: 3em;
+    margin-left: 18%;
+    margin-bottom: 3em; }
   .left__container,
   .right__container {
-      width: 100%;
-  }
-
+    width: 100%; }
   .right__container-content {
-      width: 85%;
-  }
-
+    width: 85%; }
   .left__container {
-      border-bottom: 2px solid white;
-  }
-
+    border-bottom: 2px solid white; }
   .left__container p {
-      text-align: center;
-  }
-
+    text-align: center; }
   .left__container {
-      padding-bottom: 3em;
-  }
-
+    padding-bottom: 3em; }
   .right__container-content {
-      background-color: transparent;
-  }
-
+    background-color: transparent; }
   #goBack {
-      position: inline-block;
-      margin-top: 2em;
-  }
-}
+    position: inline-block;
+    margin-top: 2em; } }
 
 @keyframes dots {
   0%, 20% {
-    color: rgba(0,0,0,0);
-    text-shadow:
-      .25em 0 0 rgba(0,0,0,0),
-      .5em 0 0 rgba(0,0,0,0);}
+    color: rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0); }
   40% {
     color: white;
-    text-shadow:
-      .25em 0 0 rgba(0,0,0,0),
-      .5em 0 0 rgba(0,0,0,0);}
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0); }
   60% {
-    text-shadow:
-      .25em 0 0 white,
-      .5em 0 0 rgba(0,0,0,0);}
+    text-shadow: 0.25em 0 0 white, 0.5em 0 0 rgba(0, 0, 0, 0); }
   80%, 100% {
-    text-shadow:
-      .25em 0 0 white,
-      .5em 0 0 white;}}
+    text-shadow: .25em 0 0 white, .5em 0 0 white; } }

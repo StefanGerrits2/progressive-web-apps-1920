@@ -8,8 +8,11 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "prestart": "npm run build:css",
+    "start": "nodemon server.js",
+    "prebuild:css": "rimraf ./public/dist",
+    "build:css": "gulp sass",
+    "watch:css": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,10 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "eslint": "^6.8.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
     "nodemon": "^2.0.2"
   }
 }
