@@ -8,7 +8,7 @@ gulp.task('browser-sync', () => {
     });
 });
 
-gulp.task('sass', function () {
+gulp.task('sass', () => {
     return gulp.src('./public/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./public/dist'))
@@ -17,11 +17,11 @@ gulp.task('sass', function () {
         }));
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
     browserSync.init({
         proxy: 'localhost:3000'
     });
-
+    // Watchers
     gulp.watch('./public/sass/**/*.scss', gulp.series('sass'));
     gulp.watch('./views/**/*.hbs', browserSync.reload);
 });
