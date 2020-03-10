@@ -9,7 +9,7 @@ gulp.task('browser-sync', () => {
 });
 
 gulp.task('sass', () => {
-    return gulp.src('./public/sass/**/*.scss')
+    return gulp.src('./public/sass/styles.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./public/dist'))
         .pipe(browserSync.reload({
