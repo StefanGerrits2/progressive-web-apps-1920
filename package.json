@@ -10,6 +10,7 @@
   "scripts": {
     "prestart": "npm run build:css",
     "start": "nodemon server.js",
+    "build": "node server.js",
     "prebuild:css": "rimraf ./public/dist",
     "build:css": "gulp sass",
     "watch:css": "gulp watch"
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/StefanGerrits2/progressive-web-apps-1920#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "node-fetch": "^2.6.0"

@@ -1,10 +1,12 @@
+require('dotenv').config();
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
+const port = process.env.PORT || 3000;
 
 gulp.task('browser-sync', () => {
     browserSync.init({
-        proxy: 'localhost:3000'
+        proxy: `localhost:${port}`
     });
 });
 
@@ -19,7 +21,7 @@ gulp.task('sass', () => {
 
 gulp.task('watch', () => {
     browserSync.init({
-        proxy: 'localhost:3000'
+        proxy: `localhost:${port}`
     });
     // Watchers
     gulp.watch('./public/sass/**/*.scss', gulp.series('sass'));
