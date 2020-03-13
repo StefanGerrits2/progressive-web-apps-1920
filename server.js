@@ -1,4 +1,5 @@
 require('dotenv').config();
+const favicon = require('serve-favicon');
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
@@ -19,6 +20,7 @@ app
         partialsDir: __dirname + '/views/partials/'
     }))
     .use('/', express.static(publicPath))
+    .use(favicon(path.join(__dirname, 'public', 'img', 'favicon.png')))
 
     // Get routes
     .get('/', home)
