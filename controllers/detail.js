@@ -1,5 +1,5 @@
-const Fetcher = require('./modules/fetch.mjs');
-const dataHelper = require('./modules/dataHelper.mjs');
+const Fetcher = require('./modules/fetch.js');
+const dataHelper = require('./modules/dataHelper.js');
 
 // Render home page
 async function detail (req, res) {

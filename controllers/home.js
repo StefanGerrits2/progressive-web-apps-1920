@@ -1,4 +1,4 @@
-const Fetcher = require('./modules/fetch.mjs');
+const Fetcher = require('./modules/fetch.js');
 
 // Render home page
 async function home (req, res) {
