@@ -91,11 +91,9 @@ Returns different kinds of beers with a lot of information, some details are:
 `https://api.punkapi.com/v2/`
 
 There are loads of paramaters which you can add to it, I use:
-`per_page` and `page` 
+`per_page`. 
 
 * I use `per_page` to get more items back, because if I don't use this, the amount of items that get returned is limited by 25. 
-
-* I use `page` because I can't fetch everything in one go, if even if this was possible I wouldn't do this because loading all the data could take some time. With the `page` I implemented a load more button to fetch data again with data on the next page in the API.
 
 #### This is how a raw object looks when I fetch it from the API
 ![image](https://user-images.githubusercontent.com/45566396/75431949-eb1b2500-594d-11ea-92a6-378961052144.png)
