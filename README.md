@@ -1,55 +1,121 @@
-# Progressive Web Apps @cmda-minor-web · 2019-2020
+# Progressive web apps
 
-In this course we will convert the client side web application previously made at the OBA into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.  
+## Concept
 
-## Learning goals
-- _You understand the difference between client side and server side rendering and you can apply server side rendering
-in your application_
-- _You understand how a Service Worker works and you can implement it in your application._
-- _You understand how the critical render path works and how you can optimize it for a better runtime and / or perceived performance._
+#### Overview page
+![image](https://user-images.githubusercontent.com/45566396/75431221-d4280300-594c-11ea-83a8-6c5cce3facc8.png)
 
-[Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vSc48v1nrjcwH0llcTd68xyK7f2fDC2UL4d6h4ZNW3DU8ucez6ZOHiId1XSX0RP5ByvLC8p5pVUGZT4/pubhtml)
+#### Detail page: general
+![image](https://user-images.githubusercontent.com/45566396/75431288-ef930e00-594c-11ea-850b-c3ed91827fc2.png)
 
-## Program
+#### Detail page: Related beers around the same alcohol percentage
+![image](https://user-images.githubusercontent.com/45566396/75431532-40a30200-594d-11ea-9c22-543ce1450fa0.png)
 
-### Week 1 - Server Side Rendering 📡
+### Description
 
-Goal: Render web pages server side
+This is a single page web app that uses the PUNK API to receive beers. The beers are shown in the overview page. I fetch 36 beers each time because you cannot fetch all beers in one go. For this sake, I implemented a loadmore button to load in more data. 
 
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/week-1.md)  
-[Slides](...)  
-[The Web landscape](...)  
+You can click on a beer to checkout the detail page for further information; including ingredients and recipes. There are also related beers shown around the same alcohol percentage. When you click on a related beer you will see the detail page of that beer.
 
+## Features
 
-### Week 2 - Progressive Web App 🚀
+* Loading in data from the PUNK API
+* Loading in more data when you click on a button
+* Being able to view a detail page
+* Being able to view related beers around the same alcohol by volume on the detail page
+* Being able to click a related beer to render the new detail page
+* Loading...
 
-Goals: Convert application to a Progressive Web App
+## Installation
 
-[Opdrachten](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/week-2.md)  
-[Slides](...)
+### 1. Clone this repository to your computer
+Run this command in your terminal:
 
+`git clone https://github.com/StefanGerrits2/progressive-web-apps-1920`
+### 2. Navigate into the root of the folder
+Run this command in your terminal:
 
-### Week 2 - Critical Rendering Path 📉 
+`cd progressive-web-apps-1920`
 
-Doel: Optimize the Critical Rendering Path   
-[Opdrachten](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/week-3.md)  
-[Slides](...)
+### 3 Installing packages
+Run this command in your terminal:
 
+`npm install`
 
-<!-- Add a link to your live demo in Github Pages 🌐-->
+### 4. Viewing the website
+Run this command in your terminal:
 
-<!-- ☝️ replace this description with a description of your own work -->
+`npm run start`
 
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
+Now go to your `localhost:3000` in your browser.
 
-<!-- Maybe a table of contents here? 📚 -->
+If you want to view in dev mode, run:
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+`npm run dev`
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
+and
 
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
+`npm run watch:css` in another terminal
 
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
+## API
 
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+#### PUNK API
+
+Returns different kinds of beers with a lot of information, some details are:
+
+<details>
+    <summary>Click here for the data properties</summary>
+        <ul>
+            <li>Name</li>
+            <li>Tagline</li>
+            <li>First brewed</li>
+            <li>Description</li>
+            <li>Image</li>
+            <li>Volume</li>
+            <li>Boil volume</li>
+            <li>Method</li>
+            <li>Ingredients</li>
+            <li>Food pairing</li>
+            <li>Brewers tips</li>
+            <li>Contributed  by</li>
+        </ul>
+</details>
+<br>
+
+* Each IP that makes a request has a rate limit of 3600 requests per hour (1 req/sec)
+* No key and authentication needed
+* HTTPS
+
+#### Root endpoint
+
+`https://api.punkapi.com/v2/`
+
+There are loads of paramaters which you can add to it, I use:
+`per_page` and `page` 
+
+* I use `per_page` to get more items back, because if I don't use this, the amount of items that get returned is limited by 25. 
+
+* I use `page` because I can't fetch everything in one go, if even if this was possible I wouldn't do this because loading all the data could take some time. With the `page` I implemented a load more button to fetch data again with data on the next page in the API.
+
+#### This is how a raw object looks when I fetch it from the API
+![image](https://user-images.githubusercontent.com/45566396/75431949-eb1b2500-594d-11ea-92a6-378961052144.png)
+
+#### I transformed my data objects to this:
+![image](https://user-images.githubusercontent.com/45566396/75431824-b909c300-594d-11ea-8a44-edd36499667d.png)
+
+## Sources
+
+* [MDN](https://developer.mozilla.org/nl/) - Main source for javascript code, for example `.filter`, `.reduce`, `.map` and the `spread operator`
+* [Fetch](https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939) - To understand how you can implement good error handling in a fetch
+
+## Credits
+
+* [Guido Bouman](https://github.com/guidobouman) - He helped me transform some data
+
+## Check it out!
+
+* [Click here to open the live link](https://stefangerrits2.github.io/web-app-from-scratch-1920/)
+
+## License
+
+[MIT](https://github.com/StefanGerrits2/web-app-from-scratch-1920/blob/master/LICENSE.txt) © Stefan Gerrits
