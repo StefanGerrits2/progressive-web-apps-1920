@@ -1,6 +1,11 @@
-@import './components/fonts',
-        './components/colors.scss',
+@import './components/transitions',
+        './components/fonts',
+        './components/colors',
         './components/header';
+
+html {
+    width: 100%;
+}
 
 body {
     margin: 0em;
@@ -13,15 +18,23 @@ img {
 }
 
 h1 {
+    font-family: Roboto-medium, sans-serif;
+    color: $orange;
+}
+
+header {
     width: 65%;
     margin: 1em auto;
-    font-family: Roboto-medium;
-    color: $orange;
+}
+
+header h1 {
     text-transform: uppercase;
+    cursor: pointer;
+    width: fit-content;
 }
 
 h2, h3 {
-    font-family: Roboto-regular;
+    font-family: Roboto-regular, sans-serif;
     color: white;
 }
 
@@ -42,7 +55,7 @@ body > p {
 }
 
 p, ul {
-    font-family: Roboto-light;
+    font-family: Roboto-light, sans-serif;
     color: white
 }
 
@@ -52,7 +65,7 @@ ul li {
 
 .tagline {
     padding: 1em;
-    font-family: Roboto-light-italic;
+    font-family: Roboto-light-italic, sans-serif;
 }
 
 /* Overview container*/
@@ -125,7 +138,7 @@ ul li {
     width: 90%;
 }
 
-.related-beers__item {
+.related-beers__container-flex a {
     padding: 1% 2%;
     width: 20%;
 }
@@ -140,7 +153,7 @@ ul li {
     margin-bottom: 2em;
 }
 
-.related-beers__item img {
+.related-beers__container-flex a img {
     height: 10em;
 }
 
@@ -161,13 +174,35 @@ text {
     text-align: center;
 }
 
+/* NOT FOUND */
+#notfound__container {
+    margin-top: 5em;
+
+    & img {
+        display: block;
+        margin: 0em auto;
+    }
+    & * {
+        text-align: center;
+    }
+    & h1 {
+        font-size: 2em;
+        margin-top: 2em;
+    }
+    & p {
+        width: 20em;
+        margin: 0em auto;
+        line-height: 1.5em;
+    }
+}
+
 /* Back button */
 #goBack {
     background-color: transparent;
     border: 2px solid $orange;
     color: $orange;
     padding: 1em 1.5em;
-    font-family: Roboto-medium;
+    font-family: Roboto-medium, sans-serif;
     cursor: pointer;
     position: absolute;
     bottom: 2em;
@@ -237,14 +272,18 @@ footer {
         margin-top: 2em;
     }
 
-    .related-beers__item {
+    .related-beers__container-flex a {
         width: 40%;
     }
 }
 
 @media screen and (max-width: 650px) {
-    .related-beers__item {
+    .related-beers__container-flex a {
         width: 100%;
+    }
+
+    header {
+        width: 85%;
     }
 
     .overview__container a {
@@ -258,35 +297,47 @@ footer {
         width: 100%;
     }
 
-  .overview__container,
-  #pagination__container,
-    h1 {
+    .overview__container, h1 {
         width: 85%;
     }
 
-    .pagination__container {
-        width: 85%;
-    }
-
-    .details__container article {
+    .article-detail__container {
         flex-direction: column;
         padding-left: 0em;
     }
 
-    .details__container p, #goBack {
-        text-align: left;
+    .details__container {
+        width: 100%;
+
+        & p {
+            margin-left: 2em;
+        }
+
+        & article {
+            height: fit-content;
+            background-color: $green;
+            padding-left: 0em;
+        }
+
+        & .left__container-content p {
+            text-align: center;
+            margin-left: 0em;
+        }
+    }
+
+    #goBack {
         margin-left: 2em;
     }
 
-    .details__container .left__container-content p {
-        text-align: center;
-        margin-left: 0em;
-    }
-
+   
     .show-details {
         display: block;
         overflow: auto;
         background-color: $green;
+    }
+
+    .ingredients__container li {
+        padding: .5em;
     }
 
     #goBack {
@@ -294,6 +345,8 @@ footer {
         width: 3em;
         margin-left: 18%;
         margin-bottom: 3em;
+        position: inline-block;
+        margin-top: 2em;
     }
 
     .left__container,
@@ -321,8 +374,17 @@ footer {
         background-color: transparent;
     }
 
-    #goBack {
-        position: inline-block;
-        margin-top: 2em;
+    #notfound__container {
+        & img {
+            height: 5em;
+        }
+
+        & h1 {
+            width: 100%;
+        }
+
+        & p {
+            width: 70%;
+        }
     }
 }

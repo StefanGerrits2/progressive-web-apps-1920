@@ -10,6 +10,7 @@ const publicPath = path.join(__dirname, './public/');
 // Controllers
 const home = require('./controllers/home.js');
 const detail = require('./controllers/detail.js');
+const notFound = require('./controllers/notFound.js');
 
 app
     .set('view engine', 'hbs')
@@ -22,6 +23,9 @@ app
 
     // Get routes
     .get('/', home)
-    .get('/:id', detail)
+    .get('/beer/:id', detail)
+
+    // 404 not found
+    .use(notFound)
 
     .listen(port, () => console.log(`Example app listening on port ${port}!`));
