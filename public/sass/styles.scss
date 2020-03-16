@@ -25,12 +25,21 @@ h1 {
 header {
     width: 65%;
     margin: 1em auto;
-}
 
-header h1 {
-    text-transform: uppercase;
-    cursor: pointer;
-    width: fit-content;
+    & a {
+        display: flex;
+        width: fit-content;
+    }
+
+    & h1 {
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    & img {
+        height: 4em;
+        margin-right: 2em;
+    }
 }
 
 h2, h3 {
@@ -198,19 +207,20 @@ text {
 
 /* Back button */
 #goBack {
-    background-color: transparent;
+    background-color: $orange;
     border: 2px solid $orange;
-    color: $orange;
+    color: black;
     padding: 1em 1.5em;
     font-family: Roboto-medium, sans-serif;
     cursor: pointer;
     position: absolute;
     bottom: 2em;
+    transition: 0.5s ease-out;
 
     &:hover {
-        color: black;
-        background-color: $orange;
-        transition: 0.2s;
+        background-color: rgb(224, 95, 81);
+        border-color: rgb(224, 95, 81);
+        transition: 0.5s ease-out;
     }
 }
 
@@ -324,11 +334,6 @@ footer {
             margin-left: 0em;
         }
     }
-
-    #goBack {
-        margin-left: 2em;
-    }
-
    
     .show-details {
         display: block;
@@ -343,7 +348,7 @@ footer {
     #goBack {
         position: relative;
         width: 3em;
-        margin-left: 18%;
+        margin-left: 2em;
         margin-bottom: 3em;
         position: inline-block;
         margin-top: 2em;

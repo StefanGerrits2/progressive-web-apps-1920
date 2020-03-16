@@ -10,8 +10,9 @@
 //     // can I even do cool stuff? 
 // });
 
-const CORE_CACHE_NAME = 'core-cache'; 
-const CORE_ASSETS = ['/dist/styles.css']; 
+const CORE_CACHE = 1;
+const CORE_CACHE_NAME = `core-cache-v${CORE_CACHE}`; 
+const CORE_ASSETS = ['./', '/dist/styles.css']; 
 
 self.addEventListener('install', event => {     
     event.waitUntil(caches.open(CORE_CACHE_NAME)             
