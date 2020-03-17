@@ -55,6 +55,17 @@ self.addEventListener('fetch', event => {
                     console.log(e);
                 })
         );
+    } else if (isFontGetRequest(event.request)) {
+        console.log('img get request', event.request.url);
+        // generic fallback
+        event.respondWith(
+            caches.open('font-cache')
+                .then(cache => cache.match(event.request.url))
+                .then(response => response ? response : fetchAndCache(event.request.url, 'font-cache'))
+                .catch(e => {
+                    console.log(e);
+                })
+        );
     }
 });
 
@@ -71,8 +82,12 @@ function fetchAndCache(request, cacheName) {
         });
 }
 
+function isFontGetRequest(request) {
+    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf('font') > -1);
+}
+
 function isImageGetRequest(request) {
-    return request.method === 'GET' && (request.headers.get('accept') !== null && request.url.indexOf('.png') > -1);
+    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf('image') > -1);
 }
 
 function isHtmlGetRequest(request) {
