@@ -1,22 +1,73 @@
-// self.addEventListener('install', event => {     
-//     // do I even exist? 
-// }); 
-
-// self.addEventListener('activate', event => {     
-//     // am I even active? 
-// }); 
-
-// self.addEventListener('fetch', event => {     
-//     // can I even do cool stuff? 
-// });
-
 const CORE_CACHE = 1;
 const CORE_CACHE_NAME = `core-cache-v${CORE_CACHE}`; 
-const CORE_ASSETS = ['./', '/dist/styles.css']; 
+const CORE_ASSETS = [
+    '/',
+    '/offline',
+    '/dist/styles.css', 
+    '/img/header-logo.png'
+]; 
 
-self.addEventListener('install', event => {     
-    event.waitUntil(caches.open(CORE_CACHE_NAME)             
+self.addEventListener('install', e => {   
+    console.log('Service worker install event!');  
+    e.waitUntil(caches.open(CORE_CACHE_NAME)             
         .then(cache => cache.addAll(CORE_ASSETS))             
         .then(() => self.skipWaiting())     
     ); 
+}); 
+
+self.addEventListener('activate', event => {
+    console.log('Activating service worker');
+    event.waitUntil(clients.claim());
 });
+  
+self.addEventListener('fetch', event => {
+    console.log('Fetch event: ', event.request.url);
+    
+    if (isCoreGetRequest(event.request)) {
+        console.log('Core get request: ', event.request.url);
+        // cache only strategy
+        event.respondWith(
+            caches.open(CORE_CACHE_NAME)
+                .then(cache => cache.match(event.request.url))
+        );
+
+    } else if (isHtmlGetRequest(event.request)) {
+        console.log('html get request', event.request.url);
+        // generic fallback
+        event.respondWith(
+            caches.open('html-cache')
+                .then(cache => cache.match(event.request.url))
+                .then(response => response ? response : fetchAndCache(event.request, 'html-cache'))
+                .catch(e => {
+                    return caches.open(CORE_CACHE_NAME)
+                        .then(cache => cache.match('/offline'));
+                })
+        );
+    }
+});
+
+function fetchAndCache(request, cacheName) {
+    return fetch(request)
+        .then(response => {
+            if (!response.ok) {
+                throw new TypeError('Bad response status');
+            }
+  
+            const clone = response.clone();
+            caches.open(cacheName).then((cache) => cache.put(request, clone));
+            return response;
+        });
+}
+
+function isHtmlGetRequest(request) {
+    return request.method === 'GET' && (request.headers.get('accept') !== null && request.headers.get('accept').indexOf('text/html') > -1);
+}
+
+function isCoreGetRequest(request) {
+    return request.method === 'GET' && CORE_ASSETS.includes(getPathName(request.url));
+}
+
+function getPathName(requestUrl) {
+    const url = new URL(requestUrl);
+    return url.pathname;
+}

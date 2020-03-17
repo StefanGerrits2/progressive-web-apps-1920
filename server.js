@@ -24,6 +24,7 @@ app
     // Get routes
     .get('/', home)
     .get('/beer/:id', detail)
+    .get('/offline', (req, res) => res.render('offline.hbs'))
 
     // 404 not found
     .use(notFound)
