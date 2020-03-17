@@ -18,6 +18,9 @@ self.addEventListener('activate', event => {
     console.log('Activating service worker');
     event.waitUntil(clients.claim());
 });
+
+// TO DO: REWRITE ALL ELSE IF'S AND FUNCTIONS -> DRY
+// ADD IMAGE REFLOW
   
 self.addEventListener('fetch', event => {
     console.log('Fetch event: ', event.request);
@@ -48,20 +51,33 @@ self.addEventListener('fetch', event => {
         console.log('img get request', event.request.url);
         // generic fallback
         event.respondWith(
-            caches.open('img-cache')
+            caches.open('images-cache')
                 .then(cache => cache.match(event.request.url))
-                .then(response => response ? response : fetchAndCache(event.request.url, 'img-cache'))
+                .then(response => response ? response : fetchAndCache(event.request.url, 'images-cache'))
                 .catch(e => {
                     console.log(e);
                 })
         );
+    // Cache fonts
     } else if (isFontGetRequest(event.request)) {
-        console.log('img get request', event.request.url);
+        console.log('font get request', event.request.url);
         // generic fallback
         event.respondWith(
             caches.open('font-cache')
                 .then(cache => cache.match(event.request.url))
                 .then(response => response ? response : fetchAndCache(event.request.url, 'font-cache'))
+                .catch(e => {
+                    console.log(e);
+                })
+        );
+    // Cache manifest
+    } else if (isManifestGetRequest(event.request)) {
+        console.log('manifest get request', event.request.url);
+        // generic fallback
+        event.respondWith(
+            caches.open('manifest-cache')
+                .then(cache => cache.match(event.request.url))
+                .then(response => response ? response : fetchAndCache(event.request.url, 'manifest-cache'))
                 .catch(e => {
                     console.log(e);
                 })
@@ -80,6 +96,10 @@ function fetchAndCache(request, cacheName) {
             caches.open(cacheName).then((cache) => cache.put(request, clone));
             return response;
         });
+}
+
+function isManifestGetRequest(request) {
+    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf('manifest') > -1);
 }
 
 function isFontGetRequest(request) {
