@@ -24,7 +24,29 @@ You can click on a beer to checkout the detail page for further information; inc
 * Being able to view a detail page
 * Being able to view related beers around the same alcohol by volume on the detail page
 * Being able to click a related beer to render the new detail page
+* Being able to view pages you visited before if you have no internet connection
+* Fallback if you want to visit a page you have never visited before without an internet connection
 * Loading...
+
+## 3 things I want feedback on / I'm proud of!
+
+* I'm proud of my service worker! It fully works. I'm planning on making the code more DRY if I have time. Maybe you have some feedback to make my service worker code more DRY?
+
+* I now minify and watch my CSS with gulp. If I want to minify my JS, does this work exactly the same? And is it a requirement to minify my JS? Or is the CSS enough?
+
+* Is my folder structure and naming logical? Or is it better to rename some or change the folder structure?
+
+## Service worker
+
+`Job story:` I want to visit detail pages I visited earlier, even if I have no internet connection.
+
+I implemented a service worker in my project where I save every page you visited in the cache. When there is no internet conncection, these pages still work! I also cached my fonts, manifest and css. If you visit a detail page which you haven't visited before, and you have no internet connection, then a page is rendered saying "It looks like you're offline".
+
+On this offline page, I want to add the routes which you can still visit so the user will have a good experience even without an internet connection. I think can get these routes out of my cache and display them on the offline page so the user can still route to other pages they visited before and thus these pages are saved in the cache.
+
+## Manifest
+
+My manifest is fully working. It has an icon, theme name etc. 
 
 ## Installation
 
