@@ -47,7 +47,7 @@ self.addEventListener('fetch', event => {
                 })
         );
     // Cache images
-    } else if (isImageGetRequest(event.request)) {
+    } else if (checkRequest(event.request, 'image')) {
         console.log('img get request', event.request.url);
         // generic fallback
         event.respondWith(
@@ -59,7 +59,7 @@ self.addEventListener('fetch', event => {
                 })
         );
     // Cache fonts
-    } else if (isFontGetRequest(event.request)) {
+    } else if (checkRequest(event.request, 'font')) {
         console.log('font get request', event.request.url);
         // generic fallback
         event.respondWith(
@@ -71,7 +71,7 @@ self.addEventListener('fetch', event => {
                 })
         );
     // Cache manifest
-    } else if (isManifestGetRequest(event.request)) {
+    } else if (checkRequest(event.request, 'manifest')) {
         console.log('manifest get request', event.request.url);
         // generic fallback
         event.respondWith(
@@ -89,7 +89,7 @@ function fetchAndCache(request, cacheName) {
     return fetch(request)
         .then(response => {
             if (!response.ok) {
-                throw new TypeError('Bad response status');
+                throw new TypeError('Oops, bad response status!');
             }
 
             const clone = response.clone();
@@ -98,26 +98,24 @@ function fetchAndCache(request, cacheName) {
         });
 }
 
-function isManifestGetRequest(request) {
-    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf('manifest') > -1);
+// Check requests
+
+// Images, fonts, manifest
+function checkRequest(request, type) {
+    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf(type) > -1);
 }
 
-function isFontGetRequest(request) {
-    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf('font') > -1);
-}
-
-function isImageGetRequest(request) {
-    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf('image') > -1);
-}
-
+// HTML
 function isHtmlGetRequest(request) {
     return request.method === 'GET' && (request.headers.get('accept') !== null && request.headers.get('accept').indexOf('text/html') > -1);
 }
 
+// Core
 function isCoreGetRequest(request) {
     return request.method === 'GET' && CORE_ASSETS.includes(getPathName(request.url));
 }
 
+// Get path
 function getPathName(requestUrl) {
     const url = new URL(requestUrl);
     return url.pathname;

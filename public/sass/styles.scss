@@ -208,9 +208,9 @@ text {
 
 /* Back button */
 #goBack {
-    background-color: $orange;
-    border: 2px solid $orange;
-    color: black;
+    background-color: black;
+    border: 2px solid black;
+    color:  $orange;
     padding: 1em 1.5em;
     font-family: Roboto-medium, sans-serif;
     cursor: pointer;
@@ -219,8 +219,9 @@ text {
     transition: 0.5s ease-out;
 
     &:hover {
-        background-color: rgb(224, 95, 81);
-        border-color: rgb(224, 95, 81);
+        background-color:  $orange;
+        border-color:  $orange;
+        color: black;
         transition: 0.5s ease-out;
     }
 }
@@ -285,6 +286,10 @@ footer {
 
     .related-beers__container-flex a {
         width: 40%;
+    }
+
+    .overview__container a:hover {
+        transform: scale(1);
     }
 }
 
