@@ -12,7 +12,7 @@ gulp.task('browser-sync', () => {
 });
 
 gulp.task('sass', () => {
-    return gulp.src('./public/sass/styles.scss')
+    return gulp.src('src/sass/styles.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(cleanCSS())
         .pipe(gulp.dest('./public/dist'))

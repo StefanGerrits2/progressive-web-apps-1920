@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
+const minifyHTML = require('express-minify-html-2');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,7 +20,21 @@ app
         defaultLayout: 'main',
         partialsDir: __dirname + '/views/partials/'
     }))
+    
     .use('/', express.static(publicPath))
+
+    .use(minifyHTML({
+        override: true,
+        exception_url: false,
+        htmlMinifier: {
+            removeComments: true,
+            collapseWhitespace: true,
+            collapseBooleanAttributes: true,
+            removeAttributeQuotes: true,
+            removeEmptyAttributes: true,
+            minifyJS: true
+        }
+    }))
 
     // Get routes
     .get('/', home)
