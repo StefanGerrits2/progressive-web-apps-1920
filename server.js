@@ -1,4 +1,5 @@
 require('dotenv').config();
+const compression = require('compression');
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
@@ -21,6 +22,7 @@ app
         partialsDir: __dirname + '/views/partials/'
     }))
     
+    .use(compression())
     .use('/', express.static(publicPath))
 
     .use(minifyHTML({

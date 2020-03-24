@@ -13,10 +13,6 @@ body {
     background-color: black;
 }
 
-img {
-    height: 10em;
-}
-
 h1 {
     font-family: Roboto-medium, sans-serif;
     color: $orange;
@@ -74,6 +70,7 @@ ul li {
 }
 
 .tagline {
+    margin-bottom: 0em;
     padding: 1em;
     font-family: Roboto-light-italic, sans-serif;
 }
@@ -88,6 +85,10 @@ ul li {
     margin-bottom: 3em;
     justify-content: space-between;
 
+    & article {
+        position: relative;
+    }
+
     & a {
         width: 30%;
         background-color: $green;
@@ -98,6 +99,15 @@ ul li {
             transform: scale(1.07);
             transition: 300ms;
         }
+
+        & h2 {
+            min-height: 2.3em;
+            display: block;
+        }
+    }
+    
+    & img {
+        height: 10em;
     }
 }
 
@@ -293,7 +303,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 880px) {
     .related-beers__container-flex a {
         width: 100%;
     }

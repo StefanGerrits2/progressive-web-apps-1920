@@ -48,6 +48,42 @@ On this offline page, I want to add the routes which you can still visit so the 
 
 My manifest is fully working. It has an icon, theme name etc. 
 
+## Performance enhancements
+
+### 1. Visual stability
+
+Images will always have reserved space. This way content won't 'jump' elsewhere when the image is rendered:
+
+![image](https://user-images.githubusercontent.com/45566396/77422366-a0b28a00-6dcd-11ea-9d2e-64e021df35da.png)
+
+![image](https://user-images.githubusercontent.com/45566396/77422495-d8b9cd00-6dcd-11ea-8cd0-3a0dc16c2202.png)
+
+### Audit test before optimizing my performance
+
+Image here
+
+### 2. Minifying
+
+I used gulp to minify my CSS. This way CSS is a smaller sized file, which makes it faster to send over the network and thus it downloads faster.
+
+Image here
+
+### 3. Caching
+
+Image here
+
+### 4. Compression
+
+Image here
+
+### 5. Service Worker
+
+Image here
+
+### Conclusion
+
+Conclusion here
+
 ## Installation
 
 ### 1. Clone this repository to your computer
@@ -117,11 +153,15 @@ There are loads of paramaters which you can add to it, I use:
 
 * I use `per_page` to get more items back, because if I don't use this, the amount of items that get returned is limited by 25. 
 
-#### This is how a raw object looks when I fetch it from the API
-![image](https://user-images.githubusercontent.com/45566396/75431949-eb1b2500-594d-11ea-92a6-378961052144.png)
+<details>
+    <summary >This is how a raw object looks when I fetch it from the API</summary>
+    <img src="https://user-images.githubusercontent.com/45566396/75431949-eb1b2500-594d-11ea-92a6-378961052144.png">
+</details>
 
-#### I transformed my data objects to this:
-![image](https://user-images.githubusercontent.com/45566396/75431824-b909c300-594d-11ea-8a44-edd36499667d.png)
+<details>
+    <summary >I transformed my data objects to this:</summary>
+    <img src="https://user-images.githubusercontent.com/45566396/75431824-b909c300-594d-11ea-8a44-edd36499667d.png">
+</details>
 
 ## Sources
 

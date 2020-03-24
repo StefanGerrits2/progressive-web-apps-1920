@@ -8,8 +8,6 @@ async function detail (req, res) {
     const getAllURL = `${baseApiUrl}?page=1&per_page=36`;
     const getIdURL = `${baseApiUrl}?page=1&ids=${req.params.id}&per_page=36`;
 
-    //try
-
     // Get clicked beer
     const clickedBeer = await Fetcher.get(getAllURL);
     // Get all data
@@ -17,14 +15,10 @@ async function detail (req, res) {
 
     // Save modified data
     const beers = dataHelper(allBeers, clickedBeer);
-    
+        
     res.render('detail.hbs', {
         beers: beers
     });
-
-    //catch - error
-
-    // finally - render 404
 }
 
 module.exports = detail;

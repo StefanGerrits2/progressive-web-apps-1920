@@ -1,19 +1,23 @@
 @font-face {
     font-family: Roboto-medium;
+    font-display: swap;
     src: url(../fonts/Roboto/Roboto-Medium.ttf);
 }
 
 @font-face {
     font-family: Roboto-regular;
+    font-display: swap;
     src: url(../fonts/Roboto/Roboto-Regular.ttf);;
 }
 
 @font-face {
     font-family: Roboto-light;
+    font-display: swap;
     src: url(../fonts/Roboto/Roboto-Light.ttf);
 }
   
 @font-face {
-font-family: Roboto-light-italic;
-src: url(../fonts/Roboto/Roboto-LightItalic.ttf);
+    font-family: Roboto-light-italic;
+    font-display: swap;
+    src: url(../fonts/Roboto/Roboto-LightItalic.ttf);
 }

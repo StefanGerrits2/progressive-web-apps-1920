@@ -26,6 +26,7 @@
     },
     "homepage": "https://github.com/StefanGerrits2/progressive-web-apps-1920#readme",
     "dependencies": {
+        "compression": "^1.7.4",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-handlebars": "^3.1.0",

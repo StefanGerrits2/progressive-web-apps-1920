@@ -12,7 +12,7 @@ gulp.task('browser-sync', () => {
 });
 
 gulp.task('sass', () => {
-    return gulp.src('src/sass/styles.scss')
+    return gulp.src('./src/sass/styles.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(cleanCSS())
         .pipe(gulp.dest('./public/dist'))
@@ -26,6 +26,6 @@ gulp.task('watch', () => {
         proxy: `localhost:${port}`
     });
     // Watchers
-    gulp.watch('./public/sass/**/*.scss', gulp.series('sass'));
+    gulp.watch('./src/sass/**/*.scss', gulp.series('sass'));
     gulp.watch('./views/**/*.hbs', browserSync.reload);
 });
