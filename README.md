@@ -3,13 +3,13 @@
 ## Concept
 
 #### Overview page
-![image](https://user-images.githubusercontent.com/45566396/75431221-d4280300-594c-11ea-83a8-6c5cce3facc8.png)
+![image](https://user-images.githubusercontent.com/45566396/77431184-a2d01500-6ddc-11ea-837e-c1c7e1db337f.png)
 
 #### Detail page: general
-![image](https://user-images.githubusercontent.com/45566396/75431288-ef930e00-594c-11ea-850b-c3ed91827fc2.png)
+![image](https://user-images.githubusercontent.com/45566396/77431272-bed3b680-6ddc-11ea-92a7-70f4dd256918.png)
 
 #### Detail page: Related beers around the same alcohol percentage
-![image](https://user-images.githubusercontent.com/45566396/75431532-40a30200-594d-11ea-9c22-543ce1450fa0.png)
+![image](https://user-images.githubusercontent.com/45566396/77431414-f6426300-6ddc-11ea-917d-5b131615f83c.png)
 
 ### Description
 
@@ -48,41 +48,106 @@ On this offline page, I want to add the routes which you can still visit so the 
 
 My manifest is fully working. It has an icon, theme name etc. 
 
-## Performance enhancements
-
-### 1. Visual stability
+### Visual stability
 
 Images will always have reserved space. This way content won't 'jump' elsewhere when the image is rendered:
 
-![image](https://user-images.githubusercontent.com/45566396/77422366-a0b28a00-6dcd-11ea-9d2e-64e021df35da.png)
+![image](https://user-images.githubusercontent.com/45566396/77431853-94362d80-6ddd-11ea-9446-e9614bded55b.png)
 
-![image](https://user-images.githubusercontent.com/45566396/77422495-d8b9cd00-6dcd-11ea-8cd0-3a0dc16c2202.png)
+![image](https://user-images.githubusercontent.com/45566396/77431916-ab751b00-6ddd-11ea-8bde-0dcb073e9a53.png)
 
-### Audit test before optimizing my performance
+### Tests before optimizing my performance
 
-Image here
+#### Audit
+![image](https://user-images.githubusercontent.com/45566396/77432363-40781400-6dde-11ea-8834-e7bb40e346b4.png)
 
-### 2. Minifying
+#### Network - Good internet
+![image](https://user-images.githubusercontent.com/45566396/77434136-b54c4d80-6de0-11ea-8567-65bba11e2acc.png)
 
+#### Network - Slow 3G
+<details>
+    <summary >Click to open stats for slow 3G</summary>
+    <img src="https://user-images.githubusercontent.com/45566396/77434280-e7f64600-6de0-11ea-8339-079d0af5c31e.png">
+</details>
+
+## Increasing performance
+The performance could be better right? So let's increase our performance! I used multiple things to increase it. I'm also gonna test the Network tab to see how fast (or slow) my pages load. I will test this with good internet speed, and slow 3G internet speed to show the difference.
+
+
+### 1. Minifying CSS
 I used gulp to minify my CSS. This way CSS is a smaller sized file, which makes it faster to send over the network and thus it downloads faster.
 
-Image here
+#### Audit
+![image](https://user-images.githubusercontent.com/45566396/77435157-3bb55f00-6de2-11ea-8cf5-9e28f074f373.png)
 
-### 3. Caching
+#### Network - Good internet
+![image](https://user-images.githubusercontent.com/45566396/77434819-bb8ef980-6de1-11ea-8db4-3d49b6fb34c2.png)
 
-Image here
+### Network - Slow 3G
+<details>
+    <summary >Click to open stats for slow 3G</summary>
+    <img src="https://user-images.githubusercontent.com/45566396/77435024-06107600-6de2-11ea-90c1-4e5a9087c595.png">
+</details>
 
-### 4. Compression
+### 2. Minifying HTML
+#### Audit
+![image](https://user-images.githubusercontent.com/45566396/77436095-59cf8f00-6de3-11ea-94cd-54f6cbbd9fee.png)
 
-Image here
+### Network - Good internet
+![image](https://user-images.githubusercontent.com/45566396/77435690-e7f74580-6de2-11ea-9eb3-a10e414179d9.png)
+
+### Network - Slow 3G 
+<details>
+    <summary >Click to open stats for slow 3G</summary>
+    <img src="https://user-images.githubusercontent.com/45566396/77435910-24c33c80-6de3-11ea-8809-086d9ed3c22d.png">
+</details>
+
+### 3. Gzip compression
+#### Audit
+![image](https://user-images.githubusercontent.com/45566396/77436350-aca94680-6de3-11ea-8c3f-057151ed5d20.png)
+
+### Network - Good internet
+![image](https://user-images.githubusercontent.com/45566396/77436463-d498aa00-6de3-11ea-8974-0b8d53dab3e9.png)
+
+### Network - Slow 3G 
+<details>
+    <summary >Click to open stats for slow 3G</summary>
+    <img src="https://user-images.githubusercontent.com/45566396/77436731-204b5380-6de4-11ea-8de5-d86df85d0891.png">
+</details>
+
+### 4. Font display swap
+#### Audits
+![image](https://user-images.githubusercontent.com/45566396/77437152-9b146e80-6de4-11ea-90f9-5b08ce54952c.png)
+
+### Network - Good internet
+![image](https://user-images.githubusercontent.com/45566396/77437329-d2831b00-6de4-11ea-9b5e-0a3326583365.png)
+
+### Network - Slow 3G
+<details>
+    <summary >Click to open stats for slow 3G</summary>
+    <img src="https://user-images.githubusercontent.com/45566396/77437504-065e4080-6de5-11ea-99b9-93d2692040af.png">
+</details>
 
 ### 5. Service Worker
+### Audits
+![image](https://user-images.githubusercontent.com/45566396/77443920-b0d96200-6deb-11ea-8613-d85581f17dda.png)
 
-Image here
+Now it shows it's a progressive web app! (check the icon)
 
-### Conclusion
+Stats change since audits test with the first view. My service worker only has huge impact on the speed of the page if you visited a page before. See below.
 
-Conclusion here
+### Network - Any internet speed, because it uses files saved in cache
+![image](https://user-images.githubusercontent.com/45566396/77437855-6d7bf500-6de5-11ea-8090-81bb79e1dd66.png)
+
+### Conclusion performance tests
+
+One thing I noticed when you test the Network tab, the speed of the page loading in is always different, this is pretty logical because your internet speed is always different. For this case, it's important to increase your performance for these kinds of scenarios where your internet is slow.
+
+A huge boost in performance was the compressing of my Express app, it decreases the size of the response body and it increases the speed of my web app. The performance test went from 87 to 95!
+
+The final touch to get the 100 in performance was the font display swap. This means the page still loads even if the fonts aren't there yet. At this time the fallback font is used. When the page is able to load in the custom font, the font changes. This way my page loading won't be blocked by any custom fonts.
+
+The service worker is a huge boost in page loading if you visited a page before. When I implemented the service worker the load time went from 516ms to 104ms!
 
 ## Installation
 
@@ -167,10 +232,14 @@ There are loads of paramaters which you can add to it, I use:
 
 * [MDN](https://developer.mozilla.org/nl/) - Main source for javascript code, for example `.filter`, `.reduce`, `.map` and the `spread operator`
 * [Fetch](https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939) - To understand how you can implement good error handling in a fetch
+* [Gzip compression](https://expressjs.com/en/advanced/best-practice-performance.html)
+* [Font display swap](https://web.dev/avoid-invisible-text/)
+* [Service worker - Declan Rek](https://github.com/decrek/progressive-web-apps-1920/blob/master/examples/movies-example/src/service-worker.js)
 
 ## Credits
 
 * [Guido Bouman](https://github.com/guidobouman) - He helped me transform some data
+* [Declan Rek](https://github.com/decrek) - For explaining how the service worker works.
 
 ## Check it out!
 

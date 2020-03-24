@@ -1,3 +1,6 @@
+// To get started I used some code from Declan Rek:
+// https://github.com/decrek/progressive-web-apps-1920/blob/master/examples/movies-example/src/service-worker.js
+
 const CORE_CACHE = 1;
 const CORE_CACHE_NAME = `core-cache-v${CORE_CACHE}`; 
 const CORE_ASSETS = [
@@ -18,9 +21,6 @@ self.addEventListener('activate', event => {
     console.log('Activating service worker');
     event.waitUntil(clients.claim());
 });
-
-// TO DO: REWRITE ALL ELSE IF'S AND FUNCTIONS -> DRY
-// ADD IMAGE REFLOW
   
 self.addEventListener('fetch', event => {
     console.log('Fetch event: ', event.request);
