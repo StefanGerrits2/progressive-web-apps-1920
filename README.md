@@ -149,6 +149,27 @@ The final touch to get the 100 in performance was the font display swap. This me
 
 The service worker is a huge boost in page loading if you visited a page before. When I implemented the service worker the load time went from 516ms to 104ms!
 
+### Conclusion Rubric
+
+#### Goal 1: Server and client side rendering
+I render my data server side with the PUNK API. If Javascript is turned off, the overview en detail page can still be visited. I haven't created any features for my client side Javascript. Because of this, I think I will get a "Voldoende" for this part of the [Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vSc48v1nrjcwH0llcTd68xyK7f2fDC2UL4d6h4ZNW3DU8ucez6ZOHiId1XSX0RP5ByvLC8p5pVUGZT4/pubhtml)
+.
+
+#### Goal 2: Service worker
+I'm using a Service Worker to cache static files and every page that is visited. This corresponds to my `Job story`. When you visit a page, it will be cached. When the user is offline, it will show either a page he has visited before, or when he visits a new page, it will tell the user he's offline and that he has no internet connection at the moment. I think I deserve between a "Voldoende" and a "Goed" for this part of the [Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vSc48v1nrjcwH0llcTd68xyK7f2fDC2UL4d6h4ZNW3DU8ucez6ZOHiId1XSX0RP5ByvLC8p5pVUGZT4/pubhtml).
+
+#### Goal 3: Optimizing critical rendering path
+I've implemented serveral things to improve the performance of my application:
+* Minifying CSS
+* Minifying HTML
+* Gzip compression
+* Font display swap
+* Service worker
+
+In my opinion these are some basic optimizations, but they to the job. Before these optimizations the Performance in the audit tools was 84. With these optimizations it bumped up to a perfect 100. These scores are measured as the First view. The repeated view means if you visit a page you've visited before. This will give the user an instant feeling because they're cached by my service worker. I'm pretty satisfied with the overal score in my audits, especially the Time to interaction (0.8s). This means the user can interact with a web page element once the page has been rendered.
+
+I think I deserve
+
 ## Installation
 
 ### 1. Clone this repository to your computer
