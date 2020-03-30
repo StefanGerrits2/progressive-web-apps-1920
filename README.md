@@ -168,7 +168,7 @@ I've implemented serveral things to improve the performance of my application:
 
 In my opinion these are some basic optimizations, but they to the job. Before these optimizations the Performance in the audit tools was 84. With these optimizations it bumped up to a perfect 100. These scores are measured as the First view. The repeated view means if you visit a page you've visited before. This will give the user an instant feeling because they're cached by my service worker. I'm pretty satisfied with the overal score in my audits, especially the Time to interaction (0.8s). This means the user can interact with a web page element once the page has been rendered.
 
-I think I deserve
+I think I deserve a "Voldoende" for this part of the [Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vSc48v1nrjcwH0llcTd68xyK7f2fDC2UL4d6h4ZNW3DU8ucez6ZOHiId1XSX0RP5ByvLC8p5pVUGZT4/pubhtml).
 
 ## Installation
 
