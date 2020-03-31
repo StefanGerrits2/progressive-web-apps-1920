@@ -264,7 +264,7 @@ There are loads of paramaters which you can add to it, I use:
 
 ## Check it out!
 
-* [Click here to open the live link](https://stefangerrits2.github.io/web-app-from-scratch-1920/)
+* [Click here to open the live link](https://warm-savannah-59622.herokuapp.com/)
 
 ## License
 
